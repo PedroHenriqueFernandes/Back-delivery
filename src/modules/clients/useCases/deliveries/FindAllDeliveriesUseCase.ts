@@ -9,7 +9,22 @@ export class FindAllsDeliveriesUseCase{
             select:{
                 id: true,
                 username: true,
-                deliveries: true
+                deliveries: {
+                    select: {
+                        id: true,
+                        item_name: true,
+                        id_client: true,
+                        id_deliveryman: true,
+                        created_at: true,
+                        end_at: true,
+                        deliveryman: {
+                            select: {
+                                id: true,
+                                username: true,
+                            }
+                        }
+                    }
+                },
             }
         })
 
